@@ -22,28 +22,53 @@ class Site
         return (new View())->render('site.post', ['posts' => $posts]);
     }
 
-    public function signup(Request $request): string
-    {
-        if ($request->method === 'POST' && User::create($request->all())) {
-            app()->route->redirect('/hello');
-    }
-        return new View('site.signup');
-    }
-
     public function login(Request $request): string
     {
         if ($request->method === 'GET') {
             return new View('site.login');
         }
+
         if (Auth::attempt($request->all())) {
-            app()->route->redirect('/hello');
+            unset($_SESSION['message']);
+
+            if (Auth::user()->isAdmin()) {
+                app()->route->redirect('/signup');
+            } else {
+                app()->route->redirect('/staff');
+            }
         }
+
         return new View('site.login', ['message' => 'Неправильные логин или пароль']);
     }
 
     public function logout(): void
     {
         Auth::logout();
-        app()->route->redirect('/hello');
+        app()->route->redirect('/login');
     }
+
+    public function signup(): string
+    {
+        $users = User::all();
+        return new View('site.signup', ['users' => $users]);
+    }
+
+    public function staff(): string
+        {
+            $user = app()->auth::user();
+            return new View('site.staff', ['user' => $user]);
+        }
+
+    public function deleteUser(Request $request): void
+        {
+            if ($request->method === 'POST') {
+                $id = $request->get('id');
+                $user = User::find($id);
+                if ($user) {
+                    $user->delete();
+                }
+            }
+
+            app()->route->redirect('/signup'); 
+        }
 }
