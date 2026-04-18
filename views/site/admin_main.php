@@ -109,7 +109,7 @@ $currentPath = $_SERVER['REQUEST_URI'] ?? '';
 
         .table-row {
             display: grid;
-            grid-template-columns: 3.2fr 1.8fr 1.8fr 220px; /* ФИО | Логин | Роль | Действия */
+            grid-template-columns: 3.2fr 1.8fr 1.8fr 220px;
             align-items: center;
             column-gap: 0;
         }
@@ -199,8 +199,8 @@ $currentPath = $_SERVER['REQUEST_URI'] ?? '';
             <?php endif; ?>
 
             <?php if (app()->auth::check() && app()->auth::user()->isAdmin()): ?>
-                <a href="<?= app()->route->getUrl('/signup') ?>"
-                   class="<?= ($currentPath == '/signup') ? 'active' : '' ?>">
+                <a href="<?= app()->route->getUrl('/adminn_main') ?>"
+                   class="<?= ($currentPath == '/admin_main') ? 'active' : '' ?>">
                     Управление пользователями
                 </a>
             <?php endif; ?>
@@ -212,7 +212,7 @@ $currentPath = $_SERVER['REQUEST_URI'] ?? '';
             <div class="user-info">
                 <div><?= htmlspecialchars(app()->auth::user()->login ?? 'login') ?></div>
                 <div style="opacity: 0.6;">
-                    <?= app()->auth::user()->isAdmin() ? 'Администратор' : 'Пользователь' ?>
+                    <?= app()->auth::user()->isAdmin() ? 'admin' : 'staff' ?>
                 </div>
             </div>
 

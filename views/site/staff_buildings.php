@@ -237,20 +237,20 @@ $currentPath = $_SERVER['REQUEST_URI'] ?? '';
             <?php endif; ?>
 
             <?php if (app()->auth::check() && !app()->auth::user()->isAdmin()): ?>
-                <a href="<?= app()->route->getUrl('/buildings') ?>"
-                   class="<?= ($currentPath === '/buildings') ? 'active' : '' ?>">
+                <a href="<?= app()->route->getUrl('/staff_buildings') ?>"
+                   class="<?= ($currentPath === '/staff_buildings') ? 'active' : '' ?>">
                     Здания
                 </a>
 
-                <a href="<?= app()->route->getUrl('/rooms') ?>"
-                   class="<?= ($currentPath === '/rooms') ? 'active' : '' ?>">
+                <a href="<?= app()->route->getUrl('/staff_rooms') ?>"
+                   class="<?= ($currentPath === '/staff_rooms') ? 'active' : '' ?>">
                     Помещения
                 </a>
             <?php endif; ?>
 
             <?php if (app()->auth::check() && app()->auth::user()->isAdmin()): ?>
-                <a href="<?= app()->route->getUrl('/signup') ?>"
-                   class="<?= ($currentPath === '/signup') ? 'active' : '' ?>">
+                <a href="<?= app()->route->getUrl('/admin_main') ?>"
+                   class="<?= ($currentPath === '/admin_main') ? 'active' : '' ?>">
                     Управление пользователями
                 </a>
             <?php endif; ?>
@@ -262,7 +262,7 @@ $currentPath = $_SERVER['REQUEST_URI'] ?? '';
             <div class="user-info">
                 <div><?= htmlspecialchars(app()->auth::user()->login ?? 'login') ?></div>
                 <div style="opacity: 0.6;">
-                    <?= app()->auth::user()->isAdmin() ? 'Администратор' : 'Сотрудник' ?>
+                    <?= app()->auth::user()->isAdmin() ? 'admin' : 'staff' ?>
                 </div>
             </div>
 
@@ -317,11 +317,11 @@ $currentPath = $_SERVER['REQUEST_URI'] ?? '';
                 <div class="cell actions-cell">
                     <div class="actions-inner">
                         <a class="action-btn"
-                           href="<?= app()->route->getUrl('/rooms') ?>?building_id=<?= (int)($building->id ?? 0) ?>">
+                           href="<?= app()->route->getUrl('staff_rooms') ?>?building_id=<?= (int)($building->id ?? 0) ?>">
                             Посмотреть помещения
                         </a>
 
-                        <form action="<?= app()->route->getUrl('/buildings') ?>" method="POST">
+                        <form action="<?= app()->route->getUrl('/staff_buildings') ?>" method="POST">
                             <input type="hidden" name="action" value="delete">
                             <input type="hidden" name="id" value="<?= (int)($building->id ?? 0) ?>">
                             <button type="submit" class="delete-btn" type="submit">Удалить</button>

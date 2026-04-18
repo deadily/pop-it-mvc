@@ -47,16 +47,16 @@ class Site
         app()->route->redirect('/login');
     }
 
-    public function signup(): string
+    public function admin_main(): string
     {
         $users = User::all();
-        return new View('site.signup', ['users' => $users]);
+        return new View('site.admin_main', ['users' => $users]);
     }
 
-    public function staff(): string
+    public function staff_buildings(): string
         {
             $user = app()->auth::user();
-            return new View('site.staff', ['user' => $user]);
+            return new View('site.staff_buildings', ['user' => $user]);
         }
 
     public function deleteUser(Request $request): void
@@ -69,6 +69,6 @@ class Site
                 }
             }
 
-            app()->route->redirect('/signup'); 
+            app()->route->redirect('/admin_main'); 
         }
 }
