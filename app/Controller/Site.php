@@ -32,7 +32,7 @@ class Site
             unset($_SESSION['message']);
 
             if (Auth::user()->isAdmin()) {
-                app()->route->redirect('/signup');
+                app()->route->redirect('/admin_main');
             } else {
                 app()->route->redirect('/staff');
             }
