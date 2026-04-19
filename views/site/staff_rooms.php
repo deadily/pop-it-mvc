@@ -23,44 +23,11 @@ $totalColumns = $numDataColumns + 1;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $buildingName ? htmlspecialchars($buildingName) : 'Управление помещениями' ?></title>
-    <link rel="stylesheet" href="assets/style/staff_rooms.css">
+
 </head>
 <body>
 
-<aside>
-    <div>
-        <div class="logo">
-            Учебно-<br>методическое<br>управление
-        </div>
-        <nav>
-            <?php if (app()->auth::check() && !app()->auth::user()->isAdmin()): ?>
-                <a href="<?= app()->route->getUrl('/staff_buildings') ?>" class="<?= ($currentPath === '/staff_buildings') ? 'active' : '' ?>">
-                    Здания
-                </a>
-                <a href="<?= app()->route->getUrl('/staff_rooms') ?>" class="<?= ($currentPath === '/staff_rooms') ? 'active' : '' ?>">
-                    Помещения
-                </a>
-            <?php endif; ?>
-        </nav>
-    </div>
 
-    <div class="sidebar-footer">
-        <?php if (app()->auth::check()): ?>
-            <div class="user-info">
-                <div><?= htmlspecialchars(app()->auth::user()->login ?? 'qwer') ?></div>
-                <div style="opacity: 0.6;">Сотрудник</div>
-            </div>
-            <a href="<?= app()->route->getUrl('/logout') ?>" class="logout-link">
-                <span>Выйти</span>
-                <span>&rarr;</span>
-            </a>
-        <?php else: ?>
-            <div class="user-info">
-                <div>Пожалуйста, войдите в систему</div>
-            </div>
-        <?php endif; ?>
-    </div>
-</aside>
 
 <main>
     <div class="content-container">

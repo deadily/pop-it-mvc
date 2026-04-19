@@ -17,7 +17,6 @@ class AuthController
         if (Auth::attempt($request->all())) {
             unset($_SESSION['message']);
 
-            // Перенаправление в зависимости от роли
             if (Auth::user()->isAdmin()) {
                 app()->route->redirect('/admin_main');
             } else {
