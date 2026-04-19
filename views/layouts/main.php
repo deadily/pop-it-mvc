@@ -19,8 +19,8 @@ $isStaff = app()->auth::check() && !app()->auth::user()->isAdmin();
     <div class="logo-block">
         <div class="logo">
             Учебно-
-методическое
-управление
+            методическое
+            управление
         </div>
     </div>
 
@@ -46,7 +46,7 @@ $isStaff = app()->auth::check() && !app()->auth::user()->isAdmin();
                 <div class="user-info">
                     <div><?= htmlspecialchars(app()->auth::user()->login ?? 'Гость') ?></div>
                     <div style="opacity: 0.6;">
-                        <?= $isAdmin ? 'Администратор' : 'Сотрудник' ?>
+                        <?= $isAdmin ? 'admin' : 'staff' ?>
                     </div>
                 </div>
                 <a href="<?= app()->route->getUrl('/logout') ?>" class="logout-link">

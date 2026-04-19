@@ -12,49 +12,6 @@ $currentPath = $_SERVER['REQUEST_URI'] ?? '/buildings?action=create';
 
 <body>
 
-<aside>
-    <div>
-        <div class="logo">
-            Учебно-<br>методическое<br>управление
-        </div>
-        <nav>
-            <?php if (app()->auth::check()): ?>
-                <?php if (app()->auth::user()->isAdmin()): ?>
-                    <a href="<?= app()->route->getUrl('/admin_main') ?>" class="<?= ($currentPath === '/admin_main') ? 'active' : '' ?>">
-                        Управление пользователями
-                    </a>
-                <?php else: ?>
-                    <a href="<?= app()->route->getUrl('/staff_buildings') ?>" class="<?= ($currentPath === '/staff_buildings') ? 'active' : '' ?>">
-                        Здания
-                    </a>
-                    <a href="<?= app()->route->getUrl('/staff_rooms') ?>" class="<?= ($currentPath === '/staff_rooms') ? 'active' : '' ?>">
-                        Помещения
-                    </a>
-                <?php endif; ?>
-            <?php endif; ?>
-        </nav>
-    </div>
-
-    <div class="sidebar-footer">
-        <?php if (app()->auth::check()): ?>
-            <div class="user-info">
-                <div><?= htmlspecialchars(app()->auth::user()->login ?? 'Гость') ?></div>
-                <div style="opacity: 0.6;">
-                    <?php if (app()->auth::user()->isAdmin()): ?>
-                        Администратор
-                    <?php else: ?>
-                        Сотрудник
-                    <?php endif; ?>
-                </div>
-            </div>
-            <a href="<?= app()->route->getUrl('/logout') ?>" class="logout-link">
-                <span>Выйти</span>
-                <span>&rarr;</span>
-            </a>
-        <?php endif; ?>
-    </div>
-</aside>
-
 <main>
     <div class="content-container">
         <div class="page-title-box">

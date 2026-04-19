@@ -40,9 +40,15 @@ class StaffController
         }
 
         $buildingId = $_GET['building_id'] ?? null;
+        $buildingName = null;
 
         if ($buildingId) {
             $rooms = Room::where('building_id', $buildingId)->get();
+            
+            $building = Building::find($buildingId);
+            if ($building) {
+                $buildingName = $building->name;
+            }
         } else {
             $rooms = Room::all();
         }
@@ -54,7 +60,8 @@ class StaffController
             'rooms' => $rooms,
             'buildings' => $buildings,
             'roomTypes' => $roomTypes,
-            'buildingId' => $buildingId
+            'buildingId' => $buildingId,
+            'buildingName' => $buildingName
         ]);
     }
 
