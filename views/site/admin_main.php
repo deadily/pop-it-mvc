@@ -11,8 +11,6 @@ $currentPath = $_SERVER['REQUEST_URI'] ?? '';
 </head>
 
 <body>
-
-
 <main>
     <div class="content-container">
         <div class="page-title-box">

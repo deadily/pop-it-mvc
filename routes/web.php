@@ -11,7 +11,6 @@ Route::add(['GET', 'POST'], '/login', [Controller\AuthController::class, 'login'
 Route::add('GET', '/logout', [Controller\AuthController::class, 'logout']);
 
 //Админ
-
 Route::add(['GET', 'POST'], '/admin_main', [Controller\AdminController::class, 'admin_main'])
     ->middleware('admin');
 
