@@ -44,6 +44,7 @@ $currentPath = $_SERVER['REQUEST_URI'] ?? '';
 
                 <div class="cell action-box">
                     <form action="<?= app()->route->getUrl('/delete-user') ?>" method="POST">
+                        <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
                         <input type="hidden" name="id" value="<?= $user->id ?>">
                         <button type="submit" class="delete-btn">Удалить</button>
                     </form>

@@ -65,7 +65,6 @@ input::placeholder {
     font-size: 16px;
     cursor: pointer;
     color: #000;
-    transition: background 0.2s;
 }
 
 .btn-submit:hover {

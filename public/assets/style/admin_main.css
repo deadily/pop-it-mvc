@@ -112,7 +112,6 @@ main {
     font-size: 16px;
     padding: 10px 0;
     width: 150px;
-    transition: background 0.2s;
 }
 
 .delete-btn:hover {

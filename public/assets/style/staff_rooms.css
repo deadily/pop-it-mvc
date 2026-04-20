@@ -53,7 +53,6 @@
     text-align: center;
     border: 2px solid #000;
     cursor: pointer;
-    transition: background 0.2s;
 }
 
 .create-btn:hover {

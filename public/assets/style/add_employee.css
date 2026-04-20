@@ -39,7 +39,6 @@ nav a {
     text-decoration: none;
     color: #000;
     font-size: 18px;
-    transition: background 0.2s;
 }
 
 nav a:hover {
@@ -128,7 +127,7 @@ main {
     font-size: 16px;
     color: #000;
     outline: none;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Легкая тень как на прототипе */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 .select-wrapper {
@@ -147,7 +146,6 @@ main {
     position: absolute;
     right: 15px;
     top: 50%;
-    transform: translateY(-50%);
     pointer-events: none;
     color: #000;
 }
@@ -169,7 +167,6 @@ main {
     font-size: 16px;
     cursor: pointer;
     min-width: 150px;
-    transition: background 0.2s;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 

@@ -18,6 +18,7 @@ $currentPath = $_SERVER['REQUEST_URI'] ?? '/rooms?action=create';
 
         <div class="form-container">
             <form action="<?= app()->route->getUrl('/store_room') ?>" method="POST">
+                <input name="csrf_token" type="hidden" value="<?= app()->auth->generateCSRF() ?>"/>
                 <div class="form-grid">
                     <label class="form-label">Здание</label>
                     <div class="form-input-wrapper select-wrapper">

@@ -11,18 +11,17 @@ body {
     background-color: #fff;
 }
 
-/* Исправленные стили для aside */
 aside {
     width: 320px;
     background-color: #D9D9D9;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Это сохранит футер внизу */
+    justify-content: space-between;
     height: 100vh;
 }
 
 .logo {
-    padding: 50px 40px; /* Отступы сверху/снизу и слева/справа для логотипа */
+    padding: 50px 40px;
     font-size: 32px;
     line-height: 1.1;
     font-weight: 500;
@@ -30,16 +29,15 @@ aside {
 
 nav {
     flex-grow: 1;
-    margin-top: 20px; /* Небольшой отступ от логотипа до меню */
+    margin-top: 20px;
 }
 
 nav a {
     display: block;
-    padding: 15px 40px; /* Отступы внутри ссылок */
+    padding: 15px 40px;
     text-decoration: none;
     color: #000;
     font-size: 18px;
-    transition: background 0.2s;
 }
 
 nav a:hover {
@@ -51,11 +49,11 @@ nav a.active {
 }
 
 .sidebar-footer {
-    padding: 20px 0; /* Отступы сверху/снизу футера */
+    padding: 20px 0;
 }
 
 .user-info {
-    padding: 0 40px 15px 40px; /* Отступы внутри user-info */
+    padding: 0 40px 15px 40px;
     font-size: 14px;
     color: #333;
 }
@@ -64,7 +62,7 @@ nav a.active {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 40px; /* Отступы внутри кнопки выхода */
+    padding: 15px 40px;
     text-decoration: none;
     color: #000;
     border-top: 1px solid #BDBDBD;

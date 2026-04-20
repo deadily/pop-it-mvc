@@ -19,7 +19,7 @@ $numDataColumns = $isBuildingView ? 4 : 5;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $buildingName ? htmlspecialchars($buildingName) . ' - Помещения' : 'Управление помещениями' ?></title>
     
-    <link rel="stylesheet" href="<?= app()->route->getUrl('/assets/style/staff_buildings.css') ?>">
+    <link rel="stylesheet" href="<?= app()->route->getUrl('/assets/style/staff_rooms.css') ?>">
 </head>
 <body>
 
@@ -94,6 +94,7 @@ $numDataColumns = $isBuildingView ? 4 : 5;
 
                     <div class="cell actions-cell">
                         <form action="<?= app()->route->getUrl('/staff_rooms') ?>" method="POST">
+                            <input type="hidden" name="csrf_token" value="<?= app()->auth->generateCSRF() ?>">
                             <input type="hidden" name="action" value="delete">
                             <input type="hidden" name="id" value="<?= (int)($room->id ?? 0) ?>">
                             

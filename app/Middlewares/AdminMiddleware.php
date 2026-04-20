@@ -2,17 +2,23 @@
 
 namespace Middlewares;
 
-use Src\Auth\Auth;
-use Src\Middleware;
+use Src\Request;
 
-class AdminMiddleware extends Middleware
+
+class AdminMiddleware
 {
-    public function handle(): bool
+    public function handle(Request $request, ?string $arg = null): ?Request
     {
-        if (!Auth::check() || !Auth::user()->isAdmin()) {
-            app()->route->redirect('/hello');
-            return false;
+        
+        if (!app()->auth->check() || !app()->auth->user()->isAdmin()) {
+            
+            $_SESSION['message'] = 'Доступ запрещен. Требуются права администратора.';
+            
+            app()->route->redirect('/hello'); 
+
+            return null; 
         }
-        return true;
+
+        return $request;
     }
 }

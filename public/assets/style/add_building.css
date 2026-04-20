@@ -87,7 +87,6 @@ main {
     position: absolute;
     right: 15px;
     top: 50%;
-    transform: translateY(-50%);
     pointer-events: none;
     color: #000;
 }
@@ -109,7 +108,6 @@ main {
     font-size: 16px;
     cursor: pointer;
     min-width: 150px;
-    transition: background 0.2s;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 

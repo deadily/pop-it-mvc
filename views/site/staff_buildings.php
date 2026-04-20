@@ -92,6 +92,7 @@ if (!app()->auth::check()) {
                                 Посмотреть помещения
                             </a>
                             <form action="<?= app()->route->getUrl('/staff_buildings') ?>" method="POST">
+                                <input type="hidden" name="csrf_token" value="<?= app()->auth->generateCSRF() ?>">
                                 <input type="hidden" name="action" value="delete">
                                 <input type="hidden" name="id" value="<?= (int)($building->id ?? 0) ?>">
                                 <button type="submit" class="delete-btn">Удалить</button>
